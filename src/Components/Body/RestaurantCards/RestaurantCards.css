@@ -1,0 +1,10 @@
+.restroCards{
+    width: 200px;
+    padding: 20px;
+}
+.restroCards:hover{
+    border: 1px solid black;
+}
+.restrologo{
+    width: 180px;
+}
