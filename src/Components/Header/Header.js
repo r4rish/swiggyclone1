@@ -1,7 +1,7 @@
 import React from "react";
 
 import { LOGO_LINK } from "../utils/constants";
-import logo from "../../tree-736885_1280.jpg"
+//import logo from "../../tree-736885_1280.jpg"
 
 import "./Header.css"
 
@@ -11,7 +11,7 @@ const Header = () => {
     return(
        <div className="header">
         <div className="logo-container">
-        <img className="logo" alt="logo" src={logo}/>
+        <img className="logo" alt="logo" src={LOGO_LINK}/>
         </div>
         <div className="navItems">
             <ul>

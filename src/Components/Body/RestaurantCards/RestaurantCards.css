@@ -4,7 +4,14 @@
 }
 .restroCards:hover{
     border: 1px solid black;
+    transform: scale(1.1);
 }
 .restrologo{
     width: 180px;
+}
+p{
+    width: 200px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

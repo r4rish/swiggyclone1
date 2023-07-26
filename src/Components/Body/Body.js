@@ -7,6 +7,10 @@ import "./Body.css";
 
 const Body = () => {
   const [listRestaurant, setlistRestaurant] = useState([]);
+  const [filteredRestaurant , setfilteredRestaurant] = useState([]);
+  const [filterRatings , setfilterRatings] = useState([]);
+  const [SearchText , setSearchText] = useState("");
+  
 
   useEffect(() => {
    fetchData();
@@ -21,27 +25,34 @@ const Body = () => {
     //console.log(json)
     //console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
      setlistRestaurant(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+     setfilteredRestaurant(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
   };
+
+ 
 
   return (
     <div className="bodyContainer">
       <div className="resButton">
         <div className="searchButton">
-          <input placeholder="search" />
-          <button>Search</button>
+          <input type="text" placeholder="search" value={SearchText} onChange={(e) => setSearchText(e.target.value)}/>
+          <button onClick={() => {
+            const filteredRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(SearchText.toLowerCase()));
+            setfilteredRestaurant(filteredRestaurant);
+          }}>Search</button>
         </div>
         <button
           onClick={() => {
-            const filterrating = listRestaurant.filter((res) => res.rating > 4);
-            setlistRestaurant(filterrating);
+            const filterrating = listRestaurant.filter((res) => res.info.rating > 4.1);
+             setlistRestaurant(filterrating);
+            console.log(filterrating)
           }}
         >
           Top Rated Restaurants
         </button>
       </div>
       <div className="restro_container">
-        {listRestaurant.map((restaurant) => (
-          <RestaurantCards key={restaurant.id} resData={restaurant} />
+        {filteredRestaurant.map((restaurant , index) => (
+          <RestaurantCards  resData={restaurant} key={restaurant.info.id}/>
         ))}
       </div>
     </div>

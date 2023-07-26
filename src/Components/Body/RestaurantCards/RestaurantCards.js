@@ -8,7 +8,7 @@ const RestaurantCards = (props) => {
   const { resData } = props;
   const { name,cloudinaryImageId, avgRating, cuisines } = resData.info;
 
-  console.log(resData.info);
+  //console.log(resData.info);
 
   return (
     <div className="restroCards">
