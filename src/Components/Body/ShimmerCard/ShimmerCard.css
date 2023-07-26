@@ -1,0 +1,10 @@
+.shimmerContainer{
+    display: flex;
+    flex-wrap: wrap;
+}
+.shimmerCard{
+    background-color: lightgray;
+    width: 200px;
+    height: 300px;
+    margin: 20px;
+}

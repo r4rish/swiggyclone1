@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import RestroList from "../utils/mockData";
 import RestaurantCards from "./RestaurantCards/RestaurantCards";
+import ShimmerCard from "./ShimmerCard/ShimmerCard"
 
 import "./Body.css";
 
@@ -30,7 +31,8 @@ const Body = () => {
 
  
 
-  return (
+  return listRestaurant.length === 0 ?( <ShimmerCard/>) :  (
+   
     <div className="bodyContainer">
       <div className="resButton">
         <div className="searchButton">

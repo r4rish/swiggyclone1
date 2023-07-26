@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { LOGO_LINK } from "../utils/constants";
 //import logo from "../../tree-736885_1280.jpg"
@@ -8,6 +8,9 @@ import "./Header.css"
 
 
 const Header = () => {
+
+const [btnName , setbtnName] = useState("Login")
+
     return(
        <div className="header">
         <div className="logo-container">
@@ -20,6 +23,7 @@ const Header = () => {
                 <li>Contact</li>
                 <li>Cart</li>
             </ul>
+            <button className="loginButton" onClick={() => btnName ==="Login" ? setbtnName("Logout") : setbtnName("Login") }>{btnName}</button>
         </div>
        </div>
     )
