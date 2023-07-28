@@ -41,7 +41,7 @@ const Body = () => {
             setfilteredRestaurant(filteredsearchRestaurant);
           }}>Search</button>
         </div>
-        <button
+        <button className="topSearch"
           onClick={() => {
             const filterrating = listRestaurant.filter((res) => res.info.avgRating > 4.2);
             //console.log(listRestaurant)

@@ -9,15 +9,21 @@
 }
 .navItems{
     display: flex;
+ 
 }
 .navItems > ul{
     display: flex;
+
 }
 .navItems > ul > li {
     list-style-type: none;
     margin: 10px;
     padding: 10px;
+  
 }
+
+
+
 .loginButton{
     margin: 35px 0px;
 }
