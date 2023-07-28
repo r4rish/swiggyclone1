@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LOGO_LINK } from "../../utils/constants";
+import { CDN_URL, LOGO_LINK } from "../../utils/constants";
 import "./RestaurantCards.css";
 
 const RestaurantCards = (props) => {
@@ -12,7 +12,7 @@ const RestaurantCards = (props) => {
 
   return (
     <div className="restroCards">
-      <img className="restrologo" alt="logo" src={LOGO_LINK} />
+      <img className="restrologo" alt="logo" src={CDN_URL + cloudinaryImageId} />
       <h3>{name}</h3>
       <h4>{avgRating}</h4>
       <p>{cuisines}</p>

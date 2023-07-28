@@ -8,8 +8,7 @@ import "./Body.css";
 
 const Body = () => {
   const [listRestaurant, setlistRestaurant] = useState([]);
-  const [filteredRestaurant , setfilteredRestaurant] = useState([]);
-  const [filterRatings , setfilterRatings] = useState([]);
+  const [filteredRestaurant , setfilteredRestaurant] = useState();
   const [SearchText , setSearchText] = useState("");
   
 
@@ -25,8 +24,8 @@ const Body = () => {
     const json = await data.json();
     //console.log(json)
     //console.log(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
-     setlistRestaurant(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
-     setfilteredRestaurant(json.data.cards[2].card.card.gridElements.infoWithStyle.restaurants);
+     setlistRestaurant(json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants);
+     setfilteredRestaurant(json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants);
   };
 
  
@@ -38,15 +37,16 @@ const Body = () => {
         <div className="searchButton">
           <input type="text" placeholder="search" value={SearchText} onChange={(e) => setSearchText(e.target.value)}/>
           <button onClick={() => {
-            const filteredRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(SearchText.toLowerCase()));
-            setfilteredRestaurant(filteredRestaurant);
+            const filteredsearchRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(SearchText.toLowerCase()));
+            setfilteredRestaurant(filteredsearchRestaurant);
           }}>Search</button>
         </div>
         <button
           onClick={() => {
-            const filterrating = listRestaurant.filter((res) => res.info.rating > 4.1);
-             setlistRestaurant(filterrating);
-            console.log(filterrating)
+            const filterrating = listRestaurant.filter((res) => res.info.avgRating > 4.2);
+            //console.log(listRestaurant)
+             setfilteredRestaurant(filterrating);
+            //console.log(filterrating)
           }}
         >
           Top Rated Restaurants
