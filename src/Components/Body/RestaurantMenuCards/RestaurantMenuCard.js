@@ -21,7 +21,7 @@ useEffect(() => {
 },[]);
 
 const fetchMenu = async () => {
-    const data = await fetch(MENU_API + "678");
+    const data = await fetch(MENU_API + resId);
 
     const json = await data.json();
     //console.log(json.data.cards[0].card.card.info)
@@ -31,12 +31,13 @@ const fetchMenu = async () => {
 
 if(resInfo === null )
 return <ShimmerCard/>;
-//const {name } = resInfo.cards[0].card.card.info;
+const {name } = resInfo.cards[0].card.card.info;
 const {itemCards} = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2].card.card;
 //console.log(itemCards);
   return (
     <div className='menu'>
-      <h1>{resInfo.cards[0]?.card.card.info.name}</h1>
+      {/* <h1>{resInfo.cards[0]?.card.card.info.name}</h1> */}
+      <h1>{name}</h1>
       <h2>{resInfo.cards[0]?.card.card.info.cuisines.join(", ")} - Rs {resInfo.cards[0]?.card.card.info.costForTwo/100}</h2>
      {/*  <h1>{name}</h1> */}
       <h2>Menu</h2>

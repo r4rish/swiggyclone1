@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
-import RestroList from "../utils/mockData";
+//import RestroList from "../utils/mockData";
 import RestaurantCards from "./RestaurantCards/RestaurantCards";
 import ShimmerCard from "./ShimmerCard/ShimmerCard"
 
@@ -54,7 +55,8 @@ const Body = () => {
       </div>
       <div className="restro_container">
         {filteredRestaurant.map((restaurant , index) => (
-          <RestaurantCards  resData={restaurant} key={restaurant.info.id}/>
+          
+         <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}> <RestaurantCards  resData={restaurant} /></Link>
         ))}
       </div>
     </div>
