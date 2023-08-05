@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import { createBrowserRouter } from "react-router-dom";
 //import About from "./Body/About"
 import Body from "./Body/Body";
+
 import Contact from "./Body/Contact";
 import Layout from "./Layout";
 import Error from "./Error";

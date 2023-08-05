@@ -12,7 +12,7 @@ import "./Body.css";
 
 const Body = () => {
   const [listRestaurant, setlistRestaurant] = useState([]);
-  const [filteredRestaurant , setfilteredRestaurant] = useState();
+  const [filteredRestaurant , setfilteredRestaurant] = useState(listRestaurant);
   const [SearchText , setSearchText] = useState("");
 
   const onlineStatus = useOnlineStatus()
@@ -32,6 +32,12 @@ const Body = () => {
      setfilteredRestaurant(json.data.cards[2].card.card.gridElements?.infoWithStyle?.restaurants);
   };
 
+  // const testSearch = (text) => {
+  //   const filteredsearchRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(text.toLowerCase()));
+  //   setfilteredRestaurant(filteredsearchRestaurant);
+  //   setSearchText(text);
+  // }
+
  if(onlineStatus === false) return <h1>You are Offline, Please check your internet</h1>
 
   return listRestaurant.length === 0 ?( <ShimmerCard/>) :  (
@@ -39,8 +45,9 @@ const Body = () => {
     <div className="bodyContainer">
       <div className="resButton">
         <div className="searchButton">
-          <input type="text" placeholder="search" value={SearchText} onChange={(e) => setSearchText(e.target.value)}/>
-          <button onClick={() => {
+          {/* <input type="text" placeholder="search" value={SearchText} onChange={(e) => testSearch(e.target.value)}/> */}
+           <input type="text" placeholder="search" value={SearchText} onChange={(e) => setSearchText(e.target.value)}/>
+           <button onClick={() => {
             const filteredsearchRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(SearchText.toLowerCase()));
             setfilteredRestaurant(filteredsearchRestaurant);
           }}>Search</button>
@@ -59,8 +66,8 @@ const Body = () => {
       <div className="restro_container">
         
         {
-       
-        filteredRestaurant.map((restaurant , index) => (
+       filteredRestaurant.length === 0 ?  <h1>No Data</h1>: 
+        filteredRestaurant.map((restaurant) => (
           
          <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}> <RestaurantCards  resData={restaurant} /></Link>
         ))
