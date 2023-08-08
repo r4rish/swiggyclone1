@@ -1,29 +1,29 @@
-.header{
+/* .header{
     display: flex;
     justify-content: space-around;
-}
+} */
 
-.logo{
+/* .logo{
     width: 100px;
     height: 100px;
-}
-.navItems{
+} */
+/* .navItems{
     display: flex;
  
 }
 .navItems > ul{
     display: flex;
 
-}
-.navItems > ul > li {
+} */
+/* .navItems > ul > li {
     list-style-type: none;
     margin: 10px;
     padding: 10px;
   
-}
+} */
 
 
 
-.loginButton{
+/* .loginButton{
     margin: 35px 0px;
-}
+} */

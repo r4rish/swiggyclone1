@@ -34,8 +34,8 @@ const Body = () => {
 
   // const testSearch = (text) => {
   //   const filteredsearchRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(text.toLowerCase()));
-  //   setfilteredRestaurant(filteredsearchRestaurant);
   //   setSearchText(text);
+  //   setfilteredRestaurant(filteredsearchRestaurant);
   // }
 
  if(onlineStatus === false) return <h1>You are Offline, Please check your internet</h1>
@@ -43,16 +43,16 @@ const Body = () => {
   return listRestaurant.length === 0 ?( <ShimmerCard/>) :  (
    
     <div className="bodyContainer">
-      <div className="resButton">
-        <div className="searchButton">
-          {/* <input type="text" placeholder="search" value={SearchText} onChange={(e) => testSearch(e.target.value)}/> */}
-           <input type="text" placeholder="search" value={SearchText} onChange={(e) => setSearchText(e.target.value)}/>
-           <button onClick={() => {
+      <div className="flex gap-40 m-5 justify-center">
+        <div className="flex">
+          {/* <input type="text" placeholder="search" value={SearchText} onChange={(e) => testSearch(e.target.value)}/>  */}
+           <input className= "border-2 border-black" type="text" placeholder="search" value={SearchText} onChange={(e) => setSearchText(e.target.value)}/>
+           <button className="bg-green-400" onClick={() => {
             const filteredsearchRestaurant = listRestaurant.filter((res) => res.info.name.toLowerCase().includes(SearchText.toLowerCase()));
             setfilteredRestaurant(filteredsearchRestaurant);
           }}>Search</button>
         </div>
-        <button className="topSearch"
+        <button className="hover:bg-red-400 border border-gray-950 bg-gray-400"
           onClick={() => {
             const filterrating = listRestaurant.filter((res) => res.info.avgRating > 4.2);
             //console.log(listRestaurant)
@@ -63,7 +63,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="restro_container">
+      <div className="flex flex-wrap justify-center m-5">
         
         {
        filteredRestaurant.length === 0 ?  <h1>No Data</h1>: 
