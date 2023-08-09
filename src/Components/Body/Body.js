@@ -4,8 +4,10 @@ import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "./customHooks/onlineStatus";
 
 import RestroList from "../utils/mockData";
-import RestaurantCards from "./RestaurantCards/RestaurantCards";
-import ShimmerCard from "./ShimmerCard/ShimmerCard"
+import RestaurantCards  from "./RestaurantCards/RestaurantCards";
+import withPromoted from "./RestaurantCards/RestaurantCardsPromoted"
+import ShimmerCard from "./ShimmerCard/ShimmerCard";
+
 
 import "./Body.css";
 
@@ -15,7 +17,8 @@ const Body = () => {
   const [filteredRestaurant , setfilteredRestaurant] = useState(listRestaurant);
   const [SearchText , setSearchText] = useState("");
 
-  const onlineStatus = useOnlineStatus()
+  const onlineStatus = useOnlineStatus();
+  const RestaurantCardsPromote = withPromoted(RestaurantCards);
   
 
   useEffect(() => {
@@ -69,7 +72,7 @@ const Body = () => {
        filteredRestaurant.length === 0 ?  <h1>No Data</h1>: 
         filteredRestaurant.map((restaurant) => (
           
-         <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}> <RestaurantCards  resData={restaurant} /></Link>
+         <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}> {restaurant.info.id ? (<RestaurantCardsPromote  resData={restaurant} />) : (<RestaurantCards  resData={restaurant} />)}</Link>
         ))
     
       }
