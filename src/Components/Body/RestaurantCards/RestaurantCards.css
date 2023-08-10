@@ -16,3 +16,9 @@
     overflow: hidden;
     text-overflow: ellipsis;
 } */
+.container .buttonContainer{
+    display: none;
+}
+.container:hover .buttonContainer{
+    display: block;
+}

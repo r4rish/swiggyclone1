@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
-import ItemList from "./ItemList"
+import ItemList from './ItemList';
+
 
 const RestaurantCategory = ({data}) => {
 const [showbtn , setShowBtn] =useState(false);
