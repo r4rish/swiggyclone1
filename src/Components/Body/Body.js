@@ -66,7 +66,7 @@ const Body = () => {
           Top Rated Restaurants
         </button>
       </div>
-      <div className="flex flex-wrap justify-center m-5">
+      <div className="flex flex-wrap justify-center m-5 ">
         
         {
        filteredRestaurant.length === 0 ?  <h1>No Data</h1>: 

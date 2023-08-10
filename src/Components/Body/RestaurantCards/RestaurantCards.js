@@ -11,11 +11,11 @@ const RestaurantCards = (props) => {
   //console.log(resData.info);
 
   return (
-    <div className="w-[260px] m-2 p-2 border-2 border-black hover:scale-110">
+    <div className="w-[260px] h-[350px] m-2 p-2 border-2 border-black hover:scale-110">
       <img className="w-[260px] h-[200px]" alt="logo" src={CDN_URL + cloudinaryImageId} />
       <h3 className="text-lg font-bold">{name}</h3>
       <h4>{avgRating}</h4>
-      <p className="truncate w-[200px] whitespace-nowrap overflow-hidden">{cuisines}</p>
+      <p className="truncate  w-[200px] whitespace-nowrap overflow-hidden hover:whitespace-normal overflow-visible">{cuisines}</p>
     </div>
   );
 };
