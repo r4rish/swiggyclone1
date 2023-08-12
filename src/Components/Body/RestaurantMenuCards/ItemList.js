@@ -11,7 +11,7 @@ const ItemList = ({items}) => {
             <div className='w-9/12'>
           <div className='py-2'>
           <span key={item.card.info.id} className='font-bold text-lg'>{item.card.info.name}</span>
-            <span key={item.card.info.id} className='font-bold text-sm'> - {item.card.info.price / 100}</span>
+            <span key={item.card.info.id} className='font-bold text-sm'> - Rs {item.card.info.price ? item.card.info.price / 100 : item.card.info.defaultPrice / 100} </span>
           </div>
           <p key={item.card.info.id}>{item.card.info.description}</p>
             </div>

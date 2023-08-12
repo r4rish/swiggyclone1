@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import { CDN_URL, LOGO_LINK } from "../../utils/constants";
 import "./RestaurantCards.css";
+import UserContext from "../../utils/UserContext";
 
 const RestaurantCards = (props) => {
 
   //We can pass props this way also
   const { resData } = props;
   const { name,cloudinaryImageId, avgRating, cuisines } = resData.info;
+  const {loggedIn} = useContext(UserContext)
 
   //console.log(resData.info);
 
@@ -17,6 +19,7 @@ const RestaurantCards = (props) => {
       <h3 className="text-lg font-bold">{name}</h3>
       <h4>{avgRating}</h4>
       <p className="truncate  w-[200px] whitespace-nowrap overflow-hidden ">{cuisines}</p>
+      <h1>{loggedIn}</h1>
     <div className="buttonContainer text-center mt-3">
        <button className="order__button text-lg bg-black text-white p-1">Order</button>
       

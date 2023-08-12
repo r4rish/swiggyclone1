@@ -10,6 +10,7 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenuCard = () => {
   // const [resInfo , setresInfo] = useState(null);
   //console.log(resInfo);
+  const [showIndex , setShowIndex] =useState(false);
 
   const { resID } = useParams();
   //Custom Hooks
@@ -46,8 +47,9 @@ console.log(categories)
         {resInfo.cards[0]?.card.card.info.cuisines.join(", ")} - Rs{" "}
         {resInfo.cards[0]?.card.card.info.costForTwo / 100}
       </h2>
-     {categories.map((category) => (
-      <RestaurantCategory data={category.card.card}/>
+     {categories.map((category , index) => (
+      <RestaurantCategory data={category.card.card} showItems = {index === showIndex ? true : false} setShowIndex = 
+      {() => setShowIndex(index)}/>
      ))}
     </div>
   );
