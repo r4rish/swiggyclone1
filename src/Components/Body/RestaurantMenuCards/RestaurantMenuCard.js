@@ -10,12 +10,12 @@ import RestaurantCategory from "./RestaurantCategory";
 const RestaurantMenuCard = () => {
   // const [resInfo , setresInfo] = useState(null);
   //console.log(resInfo);
-  const [showIndex , setShowIndex] =useState(false);
+  const [showIndex, setShowIndex] = useState(false);
 
   const { resID } = useParams();
   //Custom Hooks
   const resInfo = UseRestaurantMenuCards(resID);
-  // console.log(resID)
+   //console.log(resID)
   //WithOut Custom Hooks
   // useEffect(() => {
   //     fetchMenu();
@@ -37,8 +37,13 @@ const RestaurantMenuCard = () => {
   //console.log(itemCards);
   //console.log(resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards);
 
-  const categories = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c) => c.card?.["card"]?.["@type"] === "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-console.log(categories)
+  const categories =
+    resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
+      (c) =>
+        c.card?.["card"]?.["@type"] ===
+        "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory"
+    );
+ //console.log(categories);
   return (
     <div className="text-center">
       {/* <h1>{resInfo.cards[0]?.card.card.info.name}</h1> */}
@@ -47,10 +52,15 @@ console.log(categories)
         {resInfo.cards[0]?.card.card.info.cuisines.join(", ")} - Rs{" "}
         {resInfo.cards[0]?.card.card.info.costForTwo / 100}
       </h2>
-     {categories.map((category , index) => (
-      <RestaurantCategory data={category.card.card} showItems = {index === showIndex ? true : false} setShowIndex = 
-      {() => setShowIndex(index)}/>
-     ))}
+      {categories.map((category, index) => (
+        <RestaurantCategory
+        key={category?.card?.card?.title}
+          data={category?.card?.card}
+          showItems={index === showIndex ? true : false}
+          setShowIndex={() => setShowIndex(index)}
+        />
+        //<RestaurantCategory data={category.card.card} />
+      ))}
     </div>
   );
 };

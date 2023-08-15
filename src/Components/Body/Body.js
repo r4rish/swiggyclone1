@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { RESTAURANT_API } from "../utils/constants";
 import useOnlineStatus from "./customHooks/onlineStatus";
 
@@ -20,6 +20,7 @@ const Body = () => {
 
   const onlineStatus = useOnlineStatus();
   const RestaurantCardsPromote = withPromoted(RestaurantCards);
+
 
   useEffect(() => {
     fetchData();
