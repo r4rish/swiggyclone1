@@ -15,6 +15,7 @@ const RestaurantMenuCard = () => {
   const { resID } = useParams();
   //Custom Hooks
   const resInfo = UseRestaurantMenuCards(resID);
+  //console.log(resInfo)
    //console.log(resID)
   //WithOut Custom Hooks
   // useEffect(() => {
